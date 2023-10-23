@@ -16,12 +16,12 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             padding: 20px;
-            margin: 0 auto;
-            max-width: 400px;
+            margin: 20px;
         }
 
         h1 {
             color: #333;
+            font-size: 24px;
         }
 
         .result {
@@ -32,17 +32,22 @@
         .flavor {
             font-weight: bold;
         }
+
+        p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>あなたの注文番号は<br>{ここにdbからidを振る}</h1>
+        <h1>注文番号: {ここにdbからidを振る}</h1>
         <div class="result">
             <p><span class="flavor">砂糖味:</span> {{ order_data['砂糖'] }}</p>
             <p><span class="flavor">いちご味:</span> {{ order_data['いちご'] }}</p>
             <p><span class="flavor">メロン味:</span> {{ order_data['メロン'] }}</p>
             <p><span class="flavor">レモン味:</span> {{ order_data['レモン'] }}</p>
-            <p>支払金額 : ￥{{price}}</p>
+            <p>支払金額: ￥{{price}}</p>
         </div>
     </div>
 </body>

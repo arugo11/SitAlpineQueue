@@ -1,20 +1,36 @@
-from flask import Flask,render_template,request
+from flask import Flask,request,render_template
 
 app = Flask(__name__)
 
-@app.route("/", methods=["GET", "POST"])
-def main_page():
-    if request.method == 'GET':
-        text = "ここに結果が出力されます"
-        return render_template("page.html",text=text)
-    elif request.method == 'POST':
-        name = request.form["name"]
-        text = "こんにちは" + name + "さん"
-        return render_template("page.html",text=text)
+@app.route("/")
+def index():
+    return render_template('SAQ/form.html')
 
-## 実行
-if __name__ == "__main__":
-    app.run(debug=True)
+order_data = {
+    'sugar': 0,
+    'strawberry': 0,
+    'melon': 0,
+    'lemon': 0
+}
 
+@app.route('/form', methods=['POST'])
+def order():
+    sugar = int(request.form.get('sugar'))
+    strawberry = int(request.form.get('strawberry'))
+    melon = int(request.form.get('melon'))
+    lemon = int(request.form.get('lemon'))
+    
+    order_data = {
+        '砂糖': sugar,
+        'いちご': strawberry,
+        'メロン': melon,
+        'レモン': lemon
+    }
+
+    price = (sugar + strawberry + melon + lemon) * 300
+    
+    # ここでorder_dataを処理するロジックを記述する
+    
+    return render_template('SAQ/order_result.html',order_data = order_data,price = price)
 
 

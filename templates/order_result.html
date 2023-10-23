@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注文結果</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .flavor {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>あなたの注文番号は<br>{ここにdbからidを振る}</h1>
+        <div class="result">
+            <p><span class="flavor">砂糖味:</span> {{ order_data['砂糖'] }}</p>
+            <p><span class="flavor">いちご味:</span> {{ order_data['いちご'] }}</p>
+            <p><span class="flavor">メロン味:</span> {{ order_data['メロン'] }}</p>
+            <p><span class="flavor">レモン味:</span> {{ order_data['レモン'] }}</p>
+            <p>支払金額 : ￥{{price}}</p>
+        </div>
+    </div>
+</body>
+</html>

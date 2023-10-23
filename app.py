@@ -32,7 +32,6 @@ def order():
     # ここでorder_dataを処理するロジックを記述する
     
     return render_template('order_result.html',order_data = order_data,price = price)
-
 ## 実行
 if __name__ == "__main__":
     app.run(debug=True)

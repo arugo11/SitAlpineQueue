@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>綿菓子注文フォーム</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .color-option {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>綿菓子注文フォーム</h1>
+        <form method="POST" action="/form">
+            <div class="color-option">
+                <label for="sugar">砂糖</label>
+                <button type="button" class="btn-minus" onclick="updateQuantity('sugar', -1)">-</button>
+                <input type="text" id="sugar" name="sugar" value="0" readonly>
+                <button type="button" class="btn-plus" onclick="updateQuantity('sugar', 1)">+</button>
+            </div>
+            <div class="color-option">
+                <label for="strawberry">いちご</label>
+                <button type="button" class="btn-minus" onclick="updateQuantity('strawberry', -1)">-</button>
+                <input type="text" id="strawberry" name="strawberry" value="0" readonly>
+                <button type="button" class="btn-plus" onclick="updateQuantity('strawberry', 1)">+</button>
+            </div>
+            <div class="color-option">
+                <label for="melon">メロン</label>
+                <button type="button" class="btn-minus" onclick="updateQuantity('melon', -1)">-</button>
+                <input type="text" id="melon" name="melon" value="0" readonly>
+                <button type="button" class="btn-plus" onclick="updateQuantity('melon', 1)">+</button>
+            </div>
+            <div class="color-option">
+                <label for="lemon">レモン</label>
+                <button type="button" class="btn-minus" onclick="updateQuantity('lemon', -1)">-</button>
+                <input type="text" id="lemon" name="lemon" value="0" readonly>
+                <button type="button" class="btn-plus" onclick="updateQuantity('lemon', 1)">+</button>
+            </div>
+            <input type="submit" value="注文する">
+        </form>
+    </div>
+
+    <script>
+        function updateQuantity(color, change) {
+            const inputElement = document.getElementById(color);
+            let currentValue = parseInt(inputElement.value);
+            if (currentValue + change >= 0) {
+                inputElement.value = currentValue + change;
+            }
+        }
+    </script>
+</body>
+</html>

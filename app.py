@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template('SAQ/form.html')
+    return render_template('form.html')
 
 order_data = {
     'sugar': 0,
@@ -31,6 +31,8 @@ def order():
     
     # ここでorder_dataを処理するロジックを記述する
     
-    return render_template('SAQ/order_result.html',order_data = order_data,price = price)
+    return render_template('order_result.html',order_data = order_data,price = price)
 
-
+## 実行
+if __name__ == "__main__":
+    app.run(debug=True)

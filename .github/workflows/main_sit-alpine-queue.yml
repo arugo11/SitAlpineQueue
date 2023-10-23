@@ -64,4 +64,4 @@ jobs:
         with:
           app-name: 'SIT-Alpine-Queue'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0A71BC1DFC354DA0BE39EDF0E84BCD4D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4F9AB7483DDD4605950FCD5943E3F86A }}

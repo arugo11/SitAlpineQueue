@@ -30,13 +30,13 @@ def order():
 
     price = (sugar + strawberry + melon + lemon) * 300
     
-    #注文数に応じて表示を変更
+    # ここでorder_dataを処理するロジックを記述する
     for i in order_data:
         if order_data[i] == 0:
             order_data[i] = "注文なし"
         else:
             order_data[i] = str(order_data[i]) + "つ"
-
+    
     return render_template('order_result.html',order_data = order_data,price = price)
 ## 実行
 if __name__ == "__main__":

@@ -1,4 +1,5 @@
 from flask import Flask,request,render_template
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
@@ -30,8 +31,16 @@ def order():
     price = (sugar + strawberry + melon + lemon) * 300
     
     # ここでorder_dataを処理するロジックを記述する
-    
+    for i in order_data:
+        if order_data[i] == 0:
+            order_data[i] = "注文なし"
+        else:
+            order_data[i] = str(order_data[i]) + "つ"
+
     return render_template('order_result.html',order_data = order_data,price = price)
 ## 実行
 if __name__ == "__main__":
     app.run(debug=True)
+    db = SQLAlchemy(app) 
+    db.create_all()
+    from .models import orders

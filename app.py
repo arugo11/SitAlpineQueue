@@ -30,7 +30,7 @@ def order():
 
     price = (sugar + strawberry + melon + lemon) * 300
     
-    # ここでorder_dataを処理するロジックを記述する
+    #注文数に応じて表示を変更
     for i in order_data:
         if order_data[i] == 0:
             order_data[i] = "注文なし"
